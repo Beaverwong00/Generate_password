@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script defer>
+    function generatePassword() {
+      const length = 12;
+      const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+      let password = "";
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * charset.length);
+        password += charset[randomIndex];
+      }
+      document.getElementById("password").value = password;
+    }
+
+    function copyToClipboard() {
+      const passwordField = document.getElementById("password");
+      passwordField.select();
+      document.execCommand('copy');
+      alert('Password copied to clipboard!');
+    }
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-image: url('https://img2.pic.in.th/pic/nature.jpg'); /* Replace with your desired image URL */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      overflow: hidden;
+    }
+    .container {
+      backdrop-filter: blur(10px); /* Apply blur effect */
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center backdrop-blur-sm">
+  <div class="p-6 bg-backdrop-blur-sm rounded-lg ">
+    <h1 class="text-2xl font-bold mb-4">Password Generator</h1>
+    <div class="mb-4">
+      <input type="text" id="password" readonly class="w- px-3 py-2 border border-gray-300 rounded-md shadow-sm text-gray-700" />
+    </div>
+    <button onclick="generatePassword()" class="w-[40%] bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+      Generate Password Now!
+    </button>
+    <button onclick="copyToClipboard()" class="w- bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+        Copy Password!
+      </button>
+  </div>
+</body>
+</html>
