@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Password</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded shadow-md">
+        <h1 class="text-2xl font-bold text-gray-700 mb-4">Your Generated Password</h1>
+        <div>
+            <input type="text" class="bg-gray-200 p-4 rounded text-xl font-mono text-gray-900>
+            <?php
+                $password = file_get_contents("password.txt");
+                echo $password;
+            ?>
+        </div>
+        <button onclick="generatePassword()" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
+            Generate Password
+        </button>
+    </div>
+</body>
+</html>
